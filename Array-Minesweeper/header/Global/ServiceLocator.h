@@ -3,6 +3,10 @@
 #include "../../header/Event/EventService.h"
 #include "../../header/UI/UIService.h"
 #include "../../header/Sound/SoundService.h"
+#include "../GamePlay/Board/BoardService.h"
+
+
+using namespace Gameplay;
 
 namespace Global
 {
@@ -13,6 +17,7 @@ namespace Global
         Graphics::GraphicService* graphic_service;
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
+        Board::BoardService* boardService;
 
         ServiceLocator();
         ~ServiceLocator();
