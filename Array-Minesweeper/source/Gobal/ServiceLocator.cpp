@@ -1,5 +1,6 @@
 #include "../../header/Global/ServiceLocator.h"
 
+using namespace Gameplay::Board;
 
 namespace Global
 {
@@ -70,6 +71,8 @@ namespace Global
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }
 
 	UIService* ServiceLocator::getUIService() { return ui_service; }
+
+	BoardService* ServiceLocator::getBoardService() { return boardService; }
 
 	void ServiceLocator::deleteServiceLocator() { delete(this); }
 }

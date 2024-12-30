@@ -36,6 +36,7 @@ namespace Global
         Graphics::GraphicService* getGraphicService();
         Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
+        Board::BoardService* getBoardService();
         void deleteServiceLocator();
     };
 }
