@@ -23,12 +23,16 @@ namespace Gameplay
             ImageView* board_image ;
             const float board_width = 866.f;
             const float board_height = 1080.f;
+            const float board_width_offset = 115.f;
+            const float board_height_offset = 329.f;
 
             void initialize();
             void update();
             void render();
             void initializeBackgroudImage();
             void initializeBoardImage();
+            float getCellWidth();
+            float getCellHeight();
         };
     }
 }

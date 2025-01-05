@@ -29,6 +29,10 @@ namespace Gameplay
             void update();
             void render();
             void setCellTexture();
+
+            const float cell_top_offset = 274.f;
+            const float cell_left_offset = 583.f;
+            sf::Vector2f getCellScreenPosition(float width, float height);
         };
     }
 }

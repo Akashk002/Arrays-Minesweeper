@@ -1,46 +1,64 @@
-#pragma once
-#include "../../header/UI/UIElement/ImageView.h"
-#include <functional>
+#include "../../header/UI/UIElement/ButtonView.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Event/EventService.h"
+#include "../../header/Sound/SoundService.h"
 
 namespace UI
 {
-	namespace UIElement
-	{
-		enum class ButtonType
-		{
-			LEFT_MOUSE_BUTTON,
-			RIGHT_MOUSE_BUTTON,
-		};
+    namespace UIElement
+    {
+        using namespace Event;
+        using namespace Global;
 
-		class ButtonView : public ImageView
-		{
-		private:
-			// Define a function pointer type for the callback function
-			//using CallbackFunction = std::function<void()>;
-			//using CallbackFunction = std::function<void(ButtonType)>;
-			using CallbackFunction = std::function<void(ButtonType)>;
+        ButtonView::ButtonView() = default;
 
-			// Store the callback function
-			CallbackFunction callback_function = nullptr;
+        ButtonView::~ButtonView() = default;
 
-			void printButtonClicked();
+        void ButtonView::initialize(sf::String title, sf::String texture_path, float button_width, float button_height, sf::Vector2f position)
+        {
+            ImageView::initialize(texture_path, button_width, button_height, position);
+            button_title = title;
+        }
 
-		protected:
-			sf::String button_title;
+        void ButtonView::registerCallbackFuntion(CallbackFunction button_callback)
+        {
+            callback_function = button_callback;
+        }
 
-			virtual void handleButtonInteraction();
-			virtual bool clickedLeftMouseButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
-			virtual bool clickedRightMouseButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
+        void ButtonView::update()
+        {
+            ImageView::update();
 
-		public:
-			ButtonView();
-			virtual ~ButtonView();
+            if (ui_state == UIState::VISIBLE)
+            {
+                handleButtonInteraction();
+            }
+        }
 
-			virtual void initialize(sf::String title, sf::String texture_path, float button_width, float button_height, sf::Vector2f position);
-			virtual void update() override;
-			virtual void render() override;
+        void ButtonView::render()
+        {
+            ImageView::render();
+        }
 
-			void registerCallbackFuntion(CallbackFunction button_callback);
-		};
-	}
+        void ButtonView::handleButtonInteraction()
+        {
+            sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+            if (clickedButton(&image_sprite, mouse_position))
+            {
+                if (callback_function) callback_function();
+            }
+        }
+
+        bool ButtonView::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+        {
+            return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
+                button_sprite->getGlobalBounds().contains(mouse_position);
+        }
+
+        void ButtonView::printButtonClicked()
+        {
+            printf("Clicked %s\n", button_title.toAnsiString().c_str());
+        }
+    }
 }

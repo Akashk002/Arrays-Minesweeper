@@ -17,16 +17,17 @@ namespace Gameplay
             void destroy();
 
         public:
-            CellController();
+            CellController(int cell_index);
             ~CellController();
 
-            void initialize();
+            void initialize(float width,float height);
             void update();
             void render();
             void reset();
             CellState getCellState();
             CellValue getCellValue();
             sf::Vector2i getCellPosition();
+            int getCellIndex();
         };
     }
 }

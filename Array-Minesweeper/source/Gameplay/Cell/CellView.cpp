@@ -41,6 +41,7 @@ namespace Gameplay
         void CellView::render()
         {
             cell_button->render();
+            setCellTexture();
         }
         void CellView::setCellTexture()
         {
@@ -66,6 +67,12 @@ namespace Gameplay
                 cell_button->setTextureRect(sf::IntRect(11 * tile_size, 0, tile_size, tile_size));
                 break;
             }
+        }
+        sf::Vector2f CellView::getCellScreenPosition(float width, float height)
+        {
+            float x_screen_position = cell_left_offset + cell_controller->getCellIndex() * width;
+            float y_screen_position = cell_top_offset;
+            return sf::Vector2f(x_screen_position, y_screen_position);
         }
     }
 }

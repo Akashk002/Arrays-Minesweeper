@@ -11,11 +11,15 @@ namespace Gameplay
 		using namespace Global;
 		using namespace Sound;
 
-		CellController::CellController()
-
+		CellController::CellController(int cell_index)
 		{
-			cell_model = new CellModel();
+			cell_model = new CellModel(cell_index);
 			cell_view = new CellView(this);
+		}
+		
+		CellController::~CellController()
+		{
+
 		}
 
 		//... some other code
@@ -40,10 +44,27 @@ namespace Gameplay
 			cell_model->reset();
 		}
 
+		void CellController::update() {
+			// Your implementation here
+		}	
+		
+		void CellController::render() {
+			// Your implementation here
+		}
+
 		void CellController::destroy()
 		{
 			delete (cell_view);
 			delete (cell_model);
+		}
+		void CellController::initialize(float cell_width, float cell_height)
+		{
+			cell_view->initialize(cell_width, cell_height);
+		}
+
+		int CellController::getCellIndex()
+		{
+			return cell_model->cell_index;
 		}
 	}
 }
