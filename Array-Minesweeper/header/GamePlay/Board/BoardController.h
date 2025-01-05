@@ -23,7 +23,7 @@ namespace Gameplay
             void update();
             void render();
             void reset();
-            Cell::CellController* cells[number_of_columns];
+            Cell::CellController* board[number_of_rows][number_of_columns];
 
         private:
             void createBoard();
