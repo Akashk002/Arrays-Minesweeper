@@ -17,7 +17,7 @@ namespace Gameplay
             ~BoardService();
             void initialize();
             void update();
-            void render();
+            void render()
 
             void resetBoard();
         };

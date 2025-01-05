@@ -1,5 +1,7 @@
 #pragma once
-#include "../../header/UI/UIElement/ButtonView.h"
+#include <SFML/Graphics.hpp>
+#include <../../header/UI/UIElement/ButtonView.h>
+#include "CellController.h"
 
 namespace Gameplay
 {
@@ -12,6 +14,7 @@ namespace Gameplay
         private:
 
             const int tile_size = 32;
+            int slice_count = 12;
 
             UI::UIElement::ButtonView* cell_button;
             CellController* cell_controller;
@@ -25,6 +28,7 @@ namespace Gameplay
             void initialize(float width, float height);
             void update();
             void render();
+            void setCellTexture();
         };
     }
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <sfml/Graphics.hpp>
+#include "CellModel.h"
 
 namespace Gameplay
 {
@@ -11,6 +12,7 @@ namespace Gameplay
         {
         private:
             CellView* cell_view;
+            CellModel* cell_model;
 
             void destroy();
 
@@ -22,6 +24,9 @@ namespace Gameplay
             void update();
             void render();
             void reset();
+            CellState getCellState();
+            CellValue getCellValue();
+            sf::Vector2i getCellPosition();
         };
     }
 }
