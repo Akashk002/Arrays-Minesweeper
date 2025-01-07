@@ -133,6 +133,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Gameplay\Board\BoardController.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardService.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardView.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellController.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellModel.cpp" />
+    <ClCompile Include="source\Gameplay\Cell\CellView.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayService.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Event\EventService.cpp" />
@@ -153,6 +161,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Event\EventService.h" />
+    <ClInclude Include="header\GamePlay\Board\BoardService.h" />
+    <ClInclude Include="header\GamePlay\Board\BoardView.h" />
+    <ClInclude Include="header\GamePlay\Cell\CellController.h" />
+    <ClInclude Include="header\GamePlay\Cell\CellModel.h" />
+    <ClInclude Include="header\GamePlay\Cell\CellView.h" />
+    <ClInclude Include="header\GamePlay\GameplayController.h" />
+    <ClInclude Include="header\GamePlay\GameplayService.h" />
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Global\Config.h" />
     <ClInclude Include="header\Graphics\GraphicService.h" />
@@ -169,6 +184,7 @@
     <ClInclude Include="header\UI\UIElement\UIView.h" />
     <ClInclude Include="header\UI\UIService.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsScreenUIController.h" />
+    <ClInclude Include="header\GamePlay\Board\BoardController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
