@@ -29,6 +29,8 @@ namespace Gameplay
             void update();
             void render();
             void setCellTexture();
+            void registerButtonCallback();
+            void cellButtonCallback(UI::UIElement::ButtonType button_type);
 
             const float cell_top_offset = 274.f;
             const float cell_left_offset = 583.f;

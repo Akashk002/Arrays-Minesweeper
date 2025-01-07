@@ -13,4 +13,16 @@ namespace Gameplay
 	{
 		ServiceLocator::getInstance()->getBoardService()->resetBoard();
 	}
+	void GameplayController::updateRemainingTime()
+	{
+		remaining_time -= ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+	void GameplayController::update()
+	{
+		updateRemainingTime();
+	}
+	float GameplayController::getRemainingTime()
+	{
+		return remaining_time;
+	}
 }
