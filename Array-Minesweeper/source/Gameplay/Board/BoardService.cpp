@@ -1,4 +1,5 @@
 #include "../../header/Gameplay/Board/BoardService.h"
+using namespace UI::UIElement;
 
 namespace Gameplay
 {
@@ -36,9 +37,19 @@ namespace Gameplay
 			board_controller->reset();
 		}
 
+		int BoardService::getMinesCount()
+		{
+			return board_controller->getMinesCount();
+		}
+
 		void BoardService::destroy()
 		{
 			delete(board_controller);
+		}
+
+		void BoardService::processCellInput(CellController* cell_controller, ButtonType button_type)
+		{
+			board_controller->processCellInput(cell_controller, button_type);
 		}
 	}
 }

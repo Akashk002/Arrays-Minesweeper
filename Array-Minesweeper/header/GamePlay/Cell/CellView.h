@@ -2,6 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <../../header/UI/UIElement/ButtonView.h>
 #include "CellController.h"
+#include "../../UI/UIElement/ButtonView.h"
+
+using namespace UI::UIElement;
 
 namespace Gameplay
 {

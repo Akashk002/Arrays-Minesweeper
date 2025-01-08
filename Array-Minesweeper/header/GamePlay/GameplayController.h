@@ -14,7 +14,7 @@ namespace Gameplay
 		const float time_text_top_offset = 65.f;
 		const float time_text_left_offset = 1090.f;
 
-		UIElement::TextView* time_text;
+		UI::UIElement::TextView* time_text;
 
 		GameplayController();
 		~GameplayController();

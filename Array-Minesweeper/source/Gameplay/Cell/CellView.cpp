@@ -81,20 +81,12 @@ namespace Gameplay
 
         void CellView::registerButtonCallback()
         {
-            cell_button->registerCallbackFuntion(bind(&CellView::cellButtonCallback, this, std::placeholders::_1));
+            cell_button->registerCallbackFuntion(std::bind(&CellView::cellButtonCallback, this, std::placeholders::_1));
         }
 
         void CellView::cellButtonCallback(ButtonType button_type)
         {
-            switch (button_type)
-            {
-            case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
-                cell_controller->openCell();
-                break;
-            case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
-                cell_controller->flagCell();
-                break;
-            }
+            SoundService::getInstance()->getBoardService()->processCellInput(cell_controller, button_type);
         }
     }
 }
