@@ -1,28 +1,35 @@
 #pragma once
+#include "../../header/Gameplay/Cell/CellController.h"
+#include "../../header/UI/UIElement/ButtonView.h"
 #include "../../header/Gameplay/Board/BoardController.h"
-#include "../Cell/CellView.h"
 
 namespace Gameplay
 {
-    namespace Board
-    {
-        class BoardService
-        {
-        private:
-            Board::BoardController* board_controller;
+	namespace Board
+	{
 
-            void destroy();
 
-        public:
-            BoardService();
-            ~BoardService();
-            void initialize();
-            void update();
-            void render();
+		class BoardService
+		{
+		private:
+			BoardController* board_controller;
 
-            void resetBoard();
-            int getMinesCount();
-            int processCellInput(CellController* cell_controller, ButtonType button_type);
-        };
-    }
+		public:
+			BoardService();
+			~BoardService();
+
+			void initialize();
+			void update();
+			void render();
+
+			void showBoard();
+			int getMineCount();
+			void flagAllMines();
+			void setBoardState(BoardState state);
+			BoardState getBoardState();
+
+			void processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
+			void resetBoard();
+		};
+	}
 }

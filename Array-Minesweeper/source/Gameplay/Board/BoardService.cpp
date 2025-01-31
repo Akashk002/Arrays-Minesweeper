@@ -1,11 +1,10 @@
 #include "../../header/Gameplay/Board/BoardService.h"
-using namespace UI::UIElement;
+#include "../../header/Gameplay/Board/BoardController.h"
 
 namespace Gameplay
 {
 	namespace Board
 	{
-
 		BoardService::BoardService()
 		{
 			board_controller = nullptr;
@@ -13,7 +12,7 @@ namespace Gameplay
 
 		BoardService::~BoardService()
 		{
-			destroy();
+
 		}
 
 		void BoardService::initialize()
@@ -37,19 +36,34 @@ namespace Gameplay
 			board_controller->reset();
 		}
 
-		int BoardService::getMinesCount()
-		{
-			return board_controller->getMinesCount();
-		}
-
-		void BoardService::destroy()
-		{
-			delete(board_controller);
-		}
-
-		void BoardService::processCellInput(CellController* cell_controller, ButtonType button_type)
+		void BoardService::processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
 		{
 			board_controller->processCellInput(cell_controller, button_type);
+		}
+
+		int BoardService::getMineCount()
+		{
+			return board_controller->getMineCount();
+		}
+
+		void BoardService::showBoard()
+		{
+			board_controller->showBoard();
+		}
+
+		void BoardService::flagAllMines()
+		{
+			board_controller->flagAllMines();
+		}
+
+		void BoardService::setBoardState(BoardState state)
+		{
+			board_controller->setBoardState(state);
+		}
+
+		BoardState BoardService::getBoardState()
+		{
+			return board_controller->getBoardState();
 		}
 	}
 }

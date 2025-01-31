@@ -1,8 +1,10 @@
 #pragma once
-#include "../../header/Gameplay/GameplayController.h"
 
 namespace Gameplay
 {
+	class GameplayController;
+	enum class GameResult;
+
 	class GameplayService
 	{
 	private:
@@ -15,9 +17,12 @@ namespace Gameplay
 		void initialize();
 		void update();
 		void render();
-		void startGame();
-		float getRemainingTime();
-		int getMinesCount();
 
+		float getRemainingTime();
+		int getMineCount();
+
+		void endGame(GameResult result);
+		void startGame();
+		void reset();
 	};
 }

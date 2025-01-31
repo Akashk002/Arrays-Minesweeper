@@ -1,7 +1,5 @@
 #include "../../header/Gameplay/GameplayService.h"
-#include "../../header/Global/ServiceLocator.h"
-
-using namespace Global;
+#include "../../header/Gameplay/GameplayController.h"
 
 namespace Gameplay
 {
@@ -17,31 +15,36 @@ namespace Gameplay
 
 	void GameplayService::initialize()
 	{
-
+		gameplay_controller->initialize();
 	}
 
 	void GameplayService::update()
 	{
-
+		gameplay_controller->update();
 	}
 
 	void GameplayService::render()
 	{
-
+		gameplay_controller->render();
 	}
 
 	void GameplayService::startGame()
 	{
-		gameplay_controller->reset();
+		gameplay_controller->restart();
 	}
+
 	float GameplayService::getRemainingTime()
 	{
 		return gameplay_controller->getRemainingTime();
 	}
 
-	int GameplayService::getMinesCount()
+	void GameplayService::endGame(GameResult result)
 	{
-		return gameplay_controller->getMinesCount();
+		gameplay_controller->endGame(result);
 	}
 
+	int GameplayService::getMineCount()
+	{
+		return gameplay_controller->getMineCount();
+	}
 }

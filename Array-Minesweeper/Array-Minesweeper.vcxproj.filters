@@ -69,9 +69,6 @@
     <ClCompile Include="source\Gameplay\Board\BoardService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Gameplay\Board\BoardController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Gameplay\Board\BoardView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,6 +91,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Time\TimeService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Gameplay\Board\BoardController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

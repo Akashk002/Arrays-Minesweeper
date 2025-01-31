@@ -1,35 +1,41 @@
 #pragma once
-#include <sfml/Graphics.hpp>
-#include "CellModel.h"
+#include "../../header/Gameplay/Cell/CellModel.h"
 
 namespace Gameplay
 {
-    namespace Cell
-    {
-        class CellView;
+	namespace Cell
+	{
+		class CellView;
+		class CellModel;
 
-        class CellController
-        {
-        private:
-            CellView* cell_view;
-            CellModel* cell_model;
+		class CellController
+		{
+		private:
+			CellView* cell_view;
+			CellModel* cell_model;
 
-            void destroy();
+			void destroy();
 
-        public:
-            CellController(sf::Vector2i position);
-            ~CellController();
+		public:
+			CellController(sf::Vector2i position);
+			~CellController();
 
-            void initialize(float width,float height);
-            void update();
-            void render();
-            void reset();
-            void openCell();
-            void flagCell();
-            bool canOpenCell();
-            CellState getCellState();
-            CellValue getCellValue();
-            sf::Vector2i getCellPosition();
-        };
-    }
+			CellState getCellState();
+			CellValue getCellValue();
+
+			void setCellState(CellState state);
+			void setCellValue(CellValue value);
+			void openCell();
+			void flagCell();
+
+			void initialize(float width, float height);
+			void update();
+			void render();
+
+			void reset();
+
+			sf::Vector2i getCellPosition();
+			bool canOpenCell();
+		};
+	}
 }
