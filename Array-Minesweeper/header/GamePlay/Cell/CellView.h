@@ -1,43 +1,42 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <../../header/UI/UIElement/ButtonView.h>
-#include "CellController.h"
-#include "../../UI/UIElement/ButtonView.h"
+#include "../../header/UI/UIElement/ButtonView.h"
+#include <sfml/Graphics.hpp>
 
-using namespace UI::UIElement;
 
 namespace Gameplay
 {
-    namespace Cell
-    {
-        class CellController;
+	namespace Cell
+	{
+		class CellController;
 
-        class CellView
-        {
-        private:
+		class CellView
+		{
+		private:
+			UI::UIElement::ButtonView* cell_button;
+			CellController* cell_controller;
 
-            const int tile_size = 32;
-            int slice_count = 12;
+			const float cell_top_offset = 274.f;
+			const float cell_left_offset = 583.f;
 
-            UI::UIElement::ButtonView* cell_button;
-            CellController* cell_controller;
+			const int tile_size = 32;
+			int slice_count = 12;
 
-            void initializeButtonImage(float width, float height);
+			void initializeButtonImage(float width, float height);
 
-        public:
-            CellView(CellController* controller);
-            ~CellView();
+		public:
+			CellView(CellController* controller);
+			~CellView();
 
-            void initialize(float width, float height);
-            void update();
-            void render();
-            void setCellTexture();
-            void registerButtonCallback();
-            void cellButtonCallback(UI::UIElement::ButtonType button_type);
+			void setCellTexture();
 
-            const float cell_top_offset = 274.f;
-            const float cell_left_offset = 583.f;
-            sf::Vector2f getCellScreenPosition(float width, float height);
-        };
-    }
+			sf::Vector2f getCellScreenPosition(float width, float height);
+
+			void registerButtonCallback();
+			void cellButtonCallback(UI::UIElement::ButtonType button_type);
+
+			void initialize(float cell_width, float cell_height);
+			void update();
+			void render();
+		};
+	}
 }

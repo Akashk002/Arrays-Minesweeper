@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <chrono>
 
 namespace Time
@@ -16,7 +15,6 @@ namespace Time
 		void updatePreviousTime();
 
 	public:
-
 		void initialize();
 		void update();
 

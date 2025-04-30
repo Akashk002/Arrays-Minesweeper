@@ -3,54 +3,52 @@
 
 namespace Gameplay
 {
-    namespace Cell
-    {
-        enum class CellState
-        {
-            HIDDEN,
-            OPEN,
-            FLAGGED,
-        };
+	namespace Cell
+	{
+		enum class CellValue
+		{
+			EMPTY,
+			ONE,
+			TWO,
+			THREE,
+			FOUR,
+			FIVE,
+			SIX,
+			SEVEN,
+			EIGHT,
+			MINE,
+		};
 
-        enum class CellValue
-        {
-            EMPTY,
-            ONE,
-            TWO,
-            THREE,
-            FOUR,
-            FIVE,
-            SIX,
-            SEVEN,
-            EIGHT,
-            MINE,
-        };
+		enum class CellState
+		{
+			HIDDEN,
+			OPEN,
+			FLAGGED
+		};
 
-        class CellModel
-        {
-        private:
-            CellState cell_state;
-            CellValue cell_value;
-            sf::Vector2i position;
+		class CellModel
+		{
+		private:
+			CellValue cell_value;
+			CellState cell_state;
+
+			sf::Vector2i position;
 
 
-        public:
-            int cell_index;
+		public:
+			CellModel(sf::Vector2i position);
+			~CellModel();
 
-            CellModel(sf::Vector2i position);
-            ~CellModel();
+			CellValue getCellValue();
+			CellState getCellState();
 
-            CellState getCellState();
-            void setCellState(CellState state);
+			void setCellValue(CellValue value);
+			void setCellState(CellState state);
 
-            CellValue getCellValue();
-            void setCellValue(CellValue value);
-            
-            sf::Vector2i getCellPosition();
-            void setCellPosition(sf::Vector2i grid_position);
+			sf::Vector2i getCellPosition();
 
-            void reset();
-            int getCellIndex();
-        };
-    }
+			void reset();
+		};
+
+	}
 }

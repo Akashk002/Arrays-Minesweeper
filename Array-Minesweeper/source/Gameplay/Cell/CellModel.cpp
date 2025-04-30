@@ -1,4 +1,5 @@
 #include "../../header/Gameplay/Cell/CellModel.h"
+#include <sfml/Graphics.hpp>
 
 namespace Gameplay
 {
@@ -6,19 +7,13 @@ namespace Gameplay
 	{
 		CellModel::CellModel(sf::Vector2i position)
 		{
+			reset();
 			this->position = position;
 		}
 
-		CellModel::~CellModel() = default;
-
-		CellState CellModel::getCellState()
+		CellModel::~CellModel()
 		{
-			return cell_state;
-		}
 
-		void CellModel::setCellState(CellState state)
-		{
-			cell_state = state;
 		}
 
 		CellValue CellModel::getCellValue()
@@ -26,9 +21,19 @@ namespace Gameplay
 			return cell_value;
 		}
 
+		CellState CellModel::getCellState()
+		{
+			return cell_state;
+		}
+
 		void CellModel::setCellValue(CellValue value)
 		{
 			cell_value = value;
+		}
+
+		void CellModel::setCellState(CellState state)
+		{
+			cell_state = state;
 		}
 
 		sf::Vector2i CellModel::getCellPosition()
@@ -36,20 +41,10 @@ namespace Gameplay
 			return position;
 		}
 
-		void CellModel::setCellPosition(sf::Vector2i grid_position)
-		{
-			position = grid_position;
-		}
-
 		void CellModel::reset()
 		{
-			cell_state = CellState::HIDDEN;
 			cell_value = CellValue::EMPTY;
-		}
-
-		int CellModel::getCellIndex()
-		{
-			return cell_index;
+			cell_state = CellState::HIDDEN;
 		}
 	}
 }
